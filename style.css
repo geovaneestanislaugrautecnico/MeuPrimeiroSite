@@ -1,0 +1,304 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   BODY
+   ========================================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fundo escuro minimalista */
+    color: #e0e0e0; /* Texto claro para leitura confortável */
+    line-height: 1.6;
+}
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+h1, h2, h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* =========================================================
+   CONTAINER CENTRALIZADO
+   ========================================================= */
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   HEADER & MENU
+   ========================================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #222; /* Linha divisória sutil */
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.menu a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #a0a0a0;
+}
+
+.menu a:hover {
+    color: #ffffff;
+    background-color: #1a1a1a;
+}
+
+.menu a.ativo {
+    color: #00adb5; /* Cor de destaque (Ciano Elétrico) */
+    background-color: #1a1a1a;
+}
+
+/* =========================================================
+   BANNER
+   ========================================================= */
+.banner {
+    background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)), url('img/banner.jpg') no-repeat center center/cover;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+section {
+    padding: 80px 0;
+}
+
+.quem-somos {
+    text-align: center;
+    background-color: #1a1a1a; /* Bloco ligeiramente mais claro que o fundo */
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid #252525;
+}
+
+.quem-somos p {
+    color: #a0a0a0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.servicos {
+    text-align: center;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #252525;
+    flex: 1;
+    min-width: 250px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left; /* Alinhamento moderno à esquerda */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #00adb5; /* Borda acende no hover */
+}
+
+.card img {
+    width: 45px;
+    margin-bottom: 25px;
+    filter: invert(1); /* Ajusta ícones pretos para o modo escuro automaticamente */
+}
+
+.card p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+.botao {
+    display: inline-block;
+    background-color: #00adb5;
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.botao:hover {
+    background-color: #008c95;
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+}
+
+.botao-reset {
+    background-color: transparent;
+    color: #a0a0a0;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid #333;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: all 0.2s ease;
+}
+
+.botao-reset:hover {
+    color: #ffffff;
+    border-color: #555;
+}
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+.contato-secao {
+    background-color: #1a1a1a;
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid #252525;
+    max-width: 600px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form-grupo {
+    margin-bottom: 25px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.form-grupo input, 
+.form-grupo select, 
+.form-grupo textarea {
+    width: 100%;
+    padding: 14px;
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+/* Altera a cor do texto do placeholder (instrução interna do campo) */
+.form-grupo input::placeholder,
+.form-grupo textarea::placeholder {
+    color: #555;
+}
+
+.form-grupo input:focus, 
+.form-grupo select:focus, 
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: #00adb5;
+}
+
+/* Estilização da lista de opções do select para combinar com o tema */
+.form-grupo select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+    border-top: 1px solid #222;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+footer p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .banner h2 {
+        font-size: 1.8rem;
+    }
+
+    .cards-container {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
