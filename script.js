@@ -10,7 +10,7 @@ const SUPABASE_URL = "https://supabase.co";
 const SUPABASE_KEY = "sua-chave-anonima-publica-aqui";
 
 // Inicializa o cliente Supabase global
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = supabase.createClient(https://ybpkkbendnlzectbmnaj.supabase.co, sb_publishable_DfOMmh5vZ8N7DYYYvzyUwA_fKmpNqGb);
 
 
 
