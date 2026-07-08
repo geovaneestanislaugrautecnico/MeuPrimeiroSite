@@ -1,56 +1,50 @@
 // MENSAGEM DE BOAS-VINDAS
-
 window.onload = function() {
     console.log("Site minimalista carregado com sucesso!");
 };
 
 // Configuração de conexão com o Supabase
+const SUPABASE_URL = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdibm13cmJzc3F2dXh5ZWtvZmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0NjUxMjAsImV4cCI6MjA5OTA0MTEyMH0.UtOP3VWwmUpbp3632m22w9H4Amg4DNJYsOPXOsqijUo";
+// ATENÇÃO: Verifique no seu painel a chave correta (esta costuma ser bem longa e começar com eyJ)
+const SUPABASE_KEY = "sb_publishable_8VSzL4giDkBVlLXqCcONdA_wfHb3pET"; 
 
-const SUPABASE_URL = "https://supabase.co";
-const SUPABASE_KEY = "sua-chave-anonima-publica-aqui";
-
-// Inicializa o cliente Supabase global
-const supabase = supabase.createClient(https://ybpkkbendnlzectbmnaj.supabase.co, sb_publishable_DfOMmh5vZ8N7DYYYvzyUwA_fKmpNqGb);
-
-
+// CORRIGIDO: Agora usa as variáveis de configuração declaradas acima
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // MANIPULAÇÃO DO DOM E EVENTOS DE CLIQUE
-
 const logo = document.querySelector('header h1');
-logo.addEventListener('click', function() {
-    alert("Você clicou no logo da Tech Solutions!");
-    logo.textContent = "Tech Solutions - Líder em TI"; 
-    
-    // ATUALIZADO: Agora muda para o ciano elétrico minimalista
-    logo.style.color = "#00adb5"; 
-});
+if (logo) {
+    logo.addEventListener('click', function() {
+        alert("Você clicou no logo da Tech Solutions!");
+        logo.textContent = "Tech Solutions - Líder em TI"; 
+        logo.style.color = "#00adb5"; 
+    });
+}
 
-
-// VALIDAÇÃO SIMPLES DE FORMULÁRIO
-
+// VALIDAÇÃO E ENVIO DO FORMULÁRIO
 const formulario = document.getElementById('formContato');
 
 if (formulario) {
-    // Transformamos a função em ASYNC para permitir requisições ao servidor
     formulario.addEventListener('submit', async function(evento) {
         evento.preventDefault();
 
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const telefone = document.getElementById('telefone').value;
+        // Captura e limpa espaços extras digitados pelo usuário
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefone = document.getElementById('telefone').value.trim();
         const assunto = document.getElementById('assunto').value;
-        const mensagem = document.getElementById('mensagem').value;
+        const mensagem = document.getElementById('mensagem').value.trim();
 
         // Validação local básica
-        if (nome === "" || email === "" || telefone === "" || assunto === "" || mensagem === "") {
+        if (!nome || !email || !telefone || !assunto || !mensagem) {
             alert("Por favor, preencha todos os campos obrigatórios!");
-            return; // Para a execução aqui
+            return; 
         }
 
         try {
             // Envia os dados para a tabela 'contatos' no Supabase
-            const { data, error } = await supabase
-                .from('contatos') // Nome exato da tabela no banco
+            const { error } = await supabase
+                .from('contatos') 
                 .insert([
                     { 
                         nome: nome, 
@@ -61,17 +55,15 @@ if (formulario) {
                     }
                 ]);
 
-            if (error) {
-                throw error; // Se o servidor retornar erro, dispara para o catch
-            }
+            if (error) throw error; 
 
             // Se der tudo certo:
             alert(`Olá, ${nome}! Seus dados foram salvos no Supabase com sucesso!`);
             formulario.reset();
 
         } catch (erro) {
-            console.error("Erro ao salvar no Supabase:", erro.message);
-            alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
+            console.error("Erro ao salvar no Supabase:", erro);
+            alert("Ocorreu um erro ao enviar sua mensagem. Verifique a conexão ou tente novamente mais tarde.");
         }
     });
 }
