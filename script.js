@@ -4,9 +4,9 @@ window.onload = function() {
 };
 
 // Configuração de conexão com o Supabase
-const SUPABASE_URL = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdibm13cmJzc3F2dXh5ZWtvZmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0NjUxMjAsImV4cCI6MjA5OTA0MTEyMH0.UtOP3VWwmUpbp3632m22w9H4Amg4DNJYsOPXOsqijUo";
+const SUPABASE_URL = "https://gbnmwrbssqvuxyekofgy.supabase.co";
 // ATENÇÃO: Verifique no seu painel a chave correta (esta costuma ser bem longa e começar com eyJ)
-const SUPABASE_KEY = "sb_publishable_8VSzL4giDkBVlLXqCcONdA_wfHb3pET"; 
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdibm13cmJzc3F2dXh5ZWtvZmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0NjUxMjAsImV4cCI6MjA5OTA0MTEyMH0.UtOP3VWwmUpbp3632m22w9H4Amg4DNJYsOPXOsqijUo"; 
 
 // CORRIGIDO: Agora usa as variáveis de configuração declaradas acima
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
