@@ -1,6 +1,3 @@
-// IMPORTAÇÃO DIRETA: Carrega o Supabase direto pelo JavaScript
-import { createClient } from 'https://jsdelivr.net';
-
 // MENSAGEM DE BOAS-VINDAS
 window.onload = function() {
     console.log("Site minimalista carregado com sucesso!");
@@ -10,8 +7,8 @@ window.onload = function() {
 const SUPABASE_URL = "https://supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdibm13cmJzc3F2dXh5ZWtvZmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0NjUxMjAsImV4cCI6MjA5OTA0MTEyMH0.UtOP3VWwmUpbp3632m22w9H4Amg4DNJYsOPXOsqijUo"; 
 
-// CORRIGIDO: Chama a função importada diretamente sem o "window."
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// Inicializa usando o objeto global injetado pelo UNPKG
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // MANIPULAÇÃO DO DOM E EVENTOS DE CLIQUE
 const logo = document.querySelector('header h1');
